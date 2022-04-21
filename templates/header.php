@@ -13,10 +13,13 @@
   <body>
 
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #a16609">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #ffb600">
+          <div class="img" >
+
+          </div>
         <a class="navbar-brand" href="/">Noten Protokoll</a>
         <div class="collapse navbar-collapse " id="navbarText">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav >
             <li class="nav-item active">
               <a class="nav-link nav-right" href="/">Login</a>
             </li>

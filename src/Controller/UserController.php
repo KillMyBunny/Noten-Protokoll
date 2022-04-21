@@ -34,7 +34,7 @@ class UserController
         if (isset($_POST['send'])) {
             $firstName = $_POST['fname'];
             $lastName = $_POST['lname'];
-            $email = $_POST['email'];
+
             $password = $_POST['password'];
 
             $userRepository = new UserRepository();

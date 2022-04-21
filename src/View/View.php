@@ -86,6 +86,6 @@ class View
 
         require './../templates/header.php';
         require $this->viewfile;
-        require './../templates/footer.php';
+       // require './../templates/footer.php';
     }
 }

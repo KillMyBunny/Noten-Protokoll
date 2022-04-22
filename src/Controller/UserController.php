@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
+use App\Service\AuthenticationService;
 use App\View\View;
 
 /**
@@ -12,17 +13,16 @@ class UserController
 {
     public function index()
     {
-        $userRepository = new UserRepository();
-
         $view = new View('user/index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
+
+        $view->title = 'Register';
         $view->display();
     }
 
     public function create()
     {
+        AuthenticationService::restrictAuthenticated();
+
         $view = new View('user/create');
         $view->title = 'Benutzer erstellen';
         $view->heading = 'Benutzer erstellen';
@@ -31,22 +31,21 @@ class UserController
 
     public function doCreate()
     {
-        if (isset($_POST['send'])) {
-            $firstName = $_POST['fname'];
-            $lastName = $_POST['lname'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-            $password = $_POST['password'];
 
-            $userRepository = new UserRepository();
-            $userRepository->create($firstName, $lastName, $email, $password);
-        }
+        $userRepository = new UserRepository();
+        $userRepository->create($username, $password);
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+        header('Location: /default');
     }
 
     public function delete()
     {
+        AuthenticationService::restrictAuthenticated();
+
         $userRepository = new UserRepository();
         $userRepository->deleteById($_GET['id']);
 

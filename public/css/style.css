@@ -52,6 +52,9 @@ h1{
   padding: 20px 0 20px 0;
   border-bottom: 1px solid #dee0e4;
 }
+. hometitle h2{
+  text-align: center;
+}
 .register form{
   display: flex;
   flex-wrap: wrap;
@@ -84,3 +87,12 @@ h1{
   transition: background-color 0.2s;
 }
 
+.nav-icon{
+  position: relative;
+}
+
+.nav-icon svg {
+  fill: #be7610;
+  height: 24px;
+  width: 24px;
+}

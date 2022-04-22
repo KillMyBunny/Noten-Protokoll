@@ -5,11 +5,10 @@
 </div>
 
 <div class="register">
-    <form action="index.php" method="post">
-        <label for="username"></label>
+    <form action="/login" method="post">
+
         <input type="text" name="username" placeholder="Username eingeben" id="username" required>
-        <label for="password"></label>
         <input type="password" name="password" placeholder="Passwort eingeben" id="password" required>
-        <input type="submit" value="Login" href="../public/templates/default/home/index.php">
+        <input type="submit" value="Login">
 
     </form>

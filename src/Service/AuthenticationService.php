@@ -56,8 +56,10 @@ class AuthenticationService
     public static function getAuthenticatedUser()
     {
         // TODO: User anhand der ID aus der Session auslesen
-
+        get($_SESSION[id]);
         // TODO: User zurückgeben
+
+
     }
 
     public static function restrictAuthenticated() {

@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Controller\HomeController;
 use App\Repository\UserRepository;
 use RuntimeException;
 
@@ -19,7 +20,6 @@ class AuthenticationService
         {
             // TODO: Mitgegebenes Passwort hashen
             $password_hash = hash('sha256', $password);
-
             // Prüfen ob der Password-Hash dem aus der Datenbank entspricht
             if ($password_hash == $user->password)
             {
@@ -27,9 +27,11 @@ class AuthenticationService
                 // TODO: User-ID in die Session schreiben
                 session_start();
                 $_SESSION['id'] = $user->id;
-
+                $_SESSION['userName'] = $user->username;
                 return true;
+
             }
+
         }
 
         return false;
@@ -37,18 +39,15 @@ class AuthenticationService
 
     public static function logout()
     {
-        session_start();
-
         // TODO: Mit unset die Session-Werte löschen
         unset($_SESSION['id']);
-
         // TODO: Session zerstören
         session_destroy();
     }
 
     public static function isAuthenticated()
     {
-        session_start();
+        //session_start();
         // TODO: Zurückgeben ob eine ID in der Session gespeichert wurde (true/false)
         return isset($_SESSION['id']);
     }
@@ -57,8 +56,8 @@ class AuthenticationService
     {
         // TODO: User anhand der ID aus der Session auslesen
         get($_SESSION[id]);
+        get($_SESSION[userName]);
         // TODO: User zurückgeben
-
 
     }
 

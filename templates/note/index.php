@@ -1,8 +1,11 @@
+<h2>Hallo <?php echo $_SESSION['userName']?> hier ist eine Übersicht aller Fächer</h2>
+
 <article class="hreview open special">
     <?php if (empty($notes)): ?>
         <div class="dhd">
             <h2 class="item title">Hoopla! Keine User gefunden.</h2>
         </div>
+
     <?php else: ?>
         <?php
         ?>
@@ -24,22 +27,18 @@
                     <?php endforeach; ?>
                 </table>
             </div>
-            <div class="panel-body">
-                <p class="description">Diese <?= $note->userID?> hat eine note von <?= $note->Note; ?> </a></p>
-                <p>
-                    <a title="Löschen" href="/Note/delete?id=<?= $note->id; ?>">Löschen</a>
-                </p>
-            </div>
         </div>
 
     <?php endif; ?>
 </article>
-<th><?= $note->userID?></th>
-<label for="email"><b>Note</b></label>
-<input type="number" placeholder="Enter note" name="noteInput" min="1.0" max="6.0" required>
+<div>
+    <form action="/note/doCreate" method="post">
+        <label for="email"><b>Note</b></label>
+        <input type="number" placeholder="Enter note" name="noteInput" min="1.0" max="6.0" required>
 
-<label for="psw"><b>Date</b></label>
-<input type="date" placeholder="Enter Date" name="dateInput" required>
-<label for="user" name="userLable"><b><th><?= $note->userID?></th></b></label>
+        <label for="psw"><b>Date</b></label>
+        <input type="date" placeholder="Enter Date" name="dateInput" required>
 
-<button name="noteSave">save</button>
+        <button name="noteSave">save</button>
+    </form>
+</div>

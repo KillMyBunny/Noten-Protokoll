@@ -45,6 +45,7 @@ class UserRepository extends Repository
 
         return $statement->insert_id;
     }
+
     public function readByUsername($username)
     {
         $query = "SELECT * FROM {$this->tableName} WHERE username=?";

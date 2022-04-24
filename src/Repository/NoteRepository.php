@@ -27,7 +27,7 @@ class NoteRepository extends Repository
         $query = "SELECT * FROM {$this->tableName} WHERE userID=?";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('s', $id);
+        $statement->bind_param('i', $id);
 
         $statement->execute();
 

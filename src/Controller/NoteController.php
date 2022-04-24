@@ -15,9 +15,11 @@ class NoteController
         $view = new View('Note/index');
         $view->title = 'Note';
         $view->heading = 'Note';
-
-        //TODO REPLACE WITH USER_ID FROM SESSION
-        $userId = 1;
+        if (!isset($_SESSION)){
+            session_start();
+        }
+                    //TODO REPLACE WITH USER_ID FROM SESSION
+        $userId = $_SESSION['id'];
 
         $view->notes = $noteRepository->readByUserId($userId);
         $view->display();
@@ -36,8 +38,8 @@ class NoteController
             $Date = $_POST['dateInput'];
             $userID = $_POST['userLable'];
 
-            $userRepository = new UserRepository();
-            $userRepository->create($Note, $Date, $userID);
+            $noteRepository = new NoteRepository();
+            $noteRepository->create($Note, $Date, $userID);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)

@@ -9,18 +9,17 @@ class LoginController
 {
     public function index()
     {
+        echo "1";
         $result = AuthenticationService::login($_POST['username'], $_POST['password']);
 
+
        if($result){
-           header('Location: /home');
+           header('Location: /note');
        } else {
            echo 'Try Again!';
            $defaultController = new DefaultController();
            $defaultController->index();
        }
-
-
-
     }
 
     public function logout() {

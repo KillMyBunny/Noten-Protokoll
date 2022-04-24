@@ -41,11 +41,10 @@ class DefaultController
         //   "default_index" rendern. Wie das genau funktioniert, ist in der
         //   View Klasse beschrieben.
         $view = new View('default/index');
-
-        if (!isset($_SESSION))
-        {
+        if (!isset($_SESSION)){
             session_start();
         }
+
 
         $view->isLoggedIn = isset($_SESSION['id']);
         $view->title = 'Startseite';

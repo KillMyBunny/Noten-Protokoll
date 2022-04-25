@@ -5,6 +5,12 @@
 
 <article class="hreview open special">
 
+    <form action="/logout" method="post">
+        <input type="submit" value="logout">
+    </form>
+
+
+
     <table class="table">
     <tr>
         <th>Noten</th>
@@ -31,17 +37,17 @@
 
                             <th><?= $note->Note; ?></th>
                             <th><?= $note->Date; ?></th>
-                            <th><?= $note->fachID; ?></th>
+                            <th><?= $note->f_name; ?></th>
 
                             <th><a title="Löschen" href="/Note/delete?id=<?= $note->id; ?>">Löschen</a></th>
                             <th><a title="Edit" href="/Note/update?id=<?= $note->id; ?>">Edit</a></th>
                         </tr>
                     <?php endforeach; ?>
                 </table>
-            </div>
+
 
         </div>
 
     <?php endif; ?>
 </article>
-<a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Zurück</a>
+<a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Logout</a>

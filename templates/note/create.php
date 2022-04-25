@@ -14,7 +14,9 @@
             <label for="psw"><b>Date: </b></label>
             <input type="date" placeholder="Enter Date" name="dateInput" required>
 
-
+            <select>
+                <option> <?= $note->f_name; ?></option>
+            </select>
             <a href="/note/index" class="btn btn-danger" role="button">Zurück</a>
             <input type="submit" value="Bestätigen">
         </form>

@@ -24,7 +24,9 @@ class NoteRepository extends Repository
 
     public function readByUserId($id)
     {
-        $query = "SELECT * FROM {$this->tableName} WHERE userID=?";
+        $query = "SELECT * FROM {$this->tableName}
+                           JOIN fach ON  fach.id = {$this->tableName}.fachID
+                           WHERE userID=?";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('i', $id);
@@ -43,23 +45,27 @@ class NoteRepository extends Repository
 
         return $rows;
     }
-    public function update($note, $datum, $id)
+    public function doUpdateById($id, $note, $datum){
 
-    {
-        if (isset($_POST['send'])) {
-
-            $id = $_POST['id'];
-        $query = "UPDATE $this->tableName SET note = ?, datum = ? WHERE id = ?";
+        $query = "UPDATE {$this->tableName} SET note=?, datum=? WHERE id=?";
 
 
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
 
-        $statement->bind_param('ds', $note, $datum, $id);
+        $statement->bind_param('ssi', $note, $datum, $id);
 
 
 
-        if (!$statement->execute()) {
+        $statement->execute();
+
+
+
+        $result = $statement->get_result();
+
+
+
+        if (!$result) {
 
             throw new Exception($statement->error);
 
@@ -67,11 +73,18 @@ class NoteRepository extends Repository
 
 
 
-        return $statement->insert_id;
+        $row = $result->fetch_object();
 
-        }
-  
+
+
+        $result->close();
+
+
+
+        return $row;
+
     }
+
 }
 
 

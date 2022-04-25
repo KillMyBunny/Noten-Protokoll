@@ -94,7 +94,7 @@ class Repository
      *
      * @return Der gesuchte Datensatz oder null, sollte dieser nicht existieren
      */
-    public function readById($id)
+    public function readById($id, $note, $datum)
     {
         // Query erstellen
         $query = "SELECT * FROM {$this->tableName} WHERE id=?";
@@ -102,7 +102,7 @@ class Repository
         // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
         // und die Parameter "binden"
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('i', $id);
+        $statement->bind_param('ids', $id, $note, $datum);
 
         // Das Statement absetzen
         $statement->execute();

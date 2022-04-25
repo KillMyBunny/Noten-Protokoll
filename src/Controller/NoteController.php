@@ -25,9 +25,17 @@ class NoteController
         $userId = $_SESSION['id'];
 
         $view->notes = $noteRepository->readByUserId($userId);
+
         $view->display();
     }
     public function create(){
+
+        $View = new View('Note/create');
+        $View->title= 'Note erstellen';
+        $View->heading = 'Note erstellen';
+
+        $View->display();
+
 
 
     }
@@ -50,29 +58,44 @@ class NoteController
     public function update()
 
     {
-        $View = new View('Note/update');
-        $View->title= 'Note bearbeiten';
-        $View->heading = 'Note bearbeiten';
-        $View->display();
+
+        $noteRepository = new NoteRepository();
+
+        $view = new View('Note/update');
+
+        $view->title = 'Note bearbeiten';
+
+        $view->heading = 'Note bearbeiten';
+
+        $view->kommentar = $noteRepository->readById($_GET['id']);
+
+        $view->display();
 
     }
     public function doUpdate(){
         {
 
-            if (isset($_POST['send'])) {
-
-                $id = $_POST['id'];
-
-                $note = filter_var($_POST['note'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-                $datum = filter_var($_POST['datum'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 
 
 
-                $noteRepository = new NoteRepository();
 
-                $noteRepository->update($note, $datum, $id);
+
+            $id = htmlentities($_POST['id']);
+
+            $note = htmlentities($_POST['Note']);
+
+            $datum = htmlentities($_POST['Datum']);
+
+
+
+            $noteRepository = new KommentarRepository();
+
+            $noteRepository->doUpdateById($id, $note, $datum);
+
+
+
+            header('Location: /note/index');
 
             }
 
@@ -81,7 +104,7 @@ class NoteController
 
             header('Location: /note/index');
         }
-    }
+
     public function delete(){
         $noteRepository = new NoteRepository();
         $noteRepository->deleteById($_GET['id']);

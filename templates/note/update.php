@@ -5,13 +5,13 @@
 
     </div>
     <div class="register">
-        <form action="/note/update" method="post">
+        <form action="/note/doUpdate" method="post">
 
             <label for="note"><b>Note: </b></label>
-            <input type="number" placeholder="Note eingeben" name="noteInput" min="1.0" max="6.0" step="0.25" required>
+            <input id="titel" type="number" value="<?= $note->note ?>" name="titel" min="1.0" max="6.0" step="0.25" required>
 
             <label for="psw"><b>Date: </b></label>
-            <input type="date" placeholder="Enter Date" name="dateInput" required>
+            <input id="datum" type="date" name="datum"  value="<?= $note->datum ?>" required>
 
 
             <a href="/note/index" class="btn btn-danger" role="button">Zurück</a>

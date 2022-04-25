@@ -16,7 +16,9 @@
             <input type="date" placeholder="Enter Date" name="dateInput" required>
 
             <select>
-                <option> <?= $note->f_name; ?></option>
+                <?php foreach ($notes as $note): ?>
+                    <option><?php $note->f_name?></option>
+                <?php endforeach; ?>
             </select>
             <a href="/note/index" class="btn btn-danger" role="button">Zurück</a>
             <input type="submit" value="Bestätigen">

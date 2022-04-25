@@ -9,8 +9,6 @@
         <input type="submit" value="logout">
     </form>
     <table class = "noteübersicht">
-    <caption>Noten Übersicht</caption>
-
     <table class="table">
     <tr>
         <th>Noten</th>
@@ -20,7 +18,7 @@
     </tr>
 
     <?php if (empty($notes)): ?>
-
+    <h2>Sie haben noch kein Note</h2>
     <?php else: ?>
         <?php
         ?>
@@ -42,10 +40,10 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
-            </div>
+            </table>
 
         </div>
 
     <?php endif; ?>
 </article>
-<a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Zurück</a>
+<a href="/note/create" class="btn btn-success" role="button">Note eintragen</a>

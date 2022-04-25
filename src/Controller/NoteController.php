@@ -29,10 +29,12 @@ class NoteController
         $view->display();
     }
     public function create(){
+        $noteRepository = new NoteRepository;
         $View = new View('Note/create');
         $View->title= 'Note erstellen';
         $View->heading = 'Note erstellen';
-
+        $View->userId = $_SESSION['id'];
+        $View->notes = $noteRepository->readAll();
         $View->display();
 
     }

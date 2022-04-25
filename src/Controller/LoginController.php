@@ -9,6 +9,7 @@ class LoginController
 {
     public function index()
     {
+        echo "1";
         $result = AuthenticationService::login($_POST['username'], $_POST['password']);
 
 

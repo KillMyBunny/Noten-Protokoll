@@ -36,15 +36,10 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
-
-
-    <a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Zurück</a>
-
-
-
-
             </div>
+
         </div>
 
     <?php endif; ?>
 </article>
+<a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Zurück</a>

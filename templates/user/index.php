@@ -15,11 +15,32 @@
         <div class="register">
             <form action="/user/doCreate" method="post">
                 <label for="username"></label>
-                <input type="text" name="username" placeholder="Username eingeben" id="username" required>
+                <input type="text" name="username" placeholder="Username eingeben" id="username" required >
                 <label for="password"></label>
-                <input type="password" name="password" placeholder="Passwort eingeben" id="password" required>
-                <input type="password" name="password" placeholder="Passwort nochmals eingeben" id="password2" required>
-                <input type="submit" value="Register">
+                <input type="password" name="password" placeholder="Passwort eingeben" id="password1" required >
+                <input type="password" name="password" placeholder="Passwort nochmals eingeben" id="password2" >
+                <script type="text/javascript">
+
+
+
+                    $("[name='DAFORM']").on('submit', checkPasswords);
+
+                    function checkPasswords()
+                    {
+                        var password1 = document.getElementById("Passwort").value;
+                        var password2 = document.getElementById("Passwort_bestaetigen").value;
+
+                        if (password1 != password2)
+                        {
+                            alert("Passwörter müssen gleich sein!")
+                            document.getElementById("Passwort").focus();
+                            return false;
+                        }
+
+                        return true;
+                    }
+                </script>
+                <input type="submit" value="registrieren">
             </form>
         </div>
     </body>

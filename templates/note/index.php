@@ -13,12 +13,14 @@
                     <tr>
                         <th>note</th>
                         <th>Date</th>
-                        <th>button</th>
+                        <th>Fach</th>
+                        <th></th>
                     </tr>
                     <?php foreach ($notes as $note): ?>
                         <tr>
                             <th><?= $note->Note; ?></th>
                             <th><?= $note->Date; ?></th>
+                            <th><?= $note->fachID; ?></th>
 
                             <th><a title="Löschen" href="/Note/delete?id=<?= $note->id; ?>">Löschen</a></th>
                         </tr>

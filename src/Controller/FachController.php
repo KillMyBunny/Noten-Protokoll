@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
+use App\Repository\FachRepository;
 use App\View\View;
 
-class FachController
+class   FachController
 {
-    public function index()
-    {
-        // In diesem Fall möchten wir dem Benutzer die View mit dem Namen
-        //   "default_index" rendern. Wie das genau funktioniert, ist in der
-        //   View Klasse beschrieben.
-        $view = new View('Fach/index');
-        $view->title = 'Startseite';
-        $view->heading = 'Login';
+    public function index(){
+
+        $fachRepository = new FachRepository;
+
+        $view = new View('Note/index');
+        $view->title = 'Note';
+        $view->heading = 'Note';
+        //TODO REPLACE WITH USER_ID FROM SESSION
+        $view->fach = $fachRepository->readAll();
         $view->display();
     }
 }

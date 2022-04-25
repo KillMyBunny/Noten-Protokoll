@@ -29,6 +29,7 @@ class NoteController
         $View->title= 'Note erstellen';
         $View->heading = 'Note erstellen';
         $View->display();
+
     }
 
     public function doCreate()
@@ -43,7 +44,7 @@ class NoteController
 
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /Note');
+        header('Location: /note');
     }
     public function delete(){
         $noteRepository = new NoteRepository();

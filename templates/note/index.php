@@ -2,9 +2,6 @@
 
 <article class="hreview open special">
     <?php if (empty($notes)): ?>
-        <div class="dhd">
-            <h2 class="item title">Hoopla! Keine User gefunden.</h2>
-        </div>
 
     <?php else: ?>
         <?php
@@ -12,6 +9,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <table>
+                    <caption>Noten Übersicht</caption>
                     <tr>
                         <th>note</th>
                         <th>Date</th>
@@ -33,8 +31,8 @@
 </article>
 <div>
     <form action="/note/doCreate" method="post">
-        <label for="email"><b>Note</b></label>
-        <input type="number" placeholder="Enter note" name="noteInput" min="1.0" max="6.0" required>
+        <label for="note"><b>Note</b></label>
+        <input type="number" placeholder="Enter note" name="noteInput" min="1.0" max="6.0" step="0.25" required>
 
         <label for="psw"><b>Date</b></label>
         <input type="date" placeholder="Enter Date" name="dateInput" required>

@@ -33,14 +33,14 @@ class NoteController
 
     public function doCreate()
     {
-        if (isset($_POST['noteSave'])) {
+            session_start();
             $Note = $_POST['noteInput'];
+            $userID = $_SESSION['id'];
             $Date = $_POST['dateInput'];
-            $userID = $_POST['userLable'];
 
             $noteRepository = new NoteRepository();
             $noteRepository->create($Note, $Date, $userID);
-        }
+
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /Note');

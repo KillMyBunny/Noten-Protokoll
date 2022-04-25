@@ -10,10 +10,10 @@ class NoteRepository extends Repository
     protected $tableName = 'note';
 
     public function create ($Note, $Date, $userID){
-        $query = "INSERT INTO $this->tableName ($Note, $Date, $userID)";
+        $query = "INSERT INTO $this->tableName (Note, Date, userID) VALUES (?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('isi', $Note, $Date, $userID);
+        $statement->bind_param('dsi', $Note, $Date, $userID);
 
         if (!$statement->execute()){
             throw new Exception($statement-error);

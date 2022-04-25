@@ -1,14 +1,21 @@
-<h2>Hallo <?php echo $_SESSION['userName']?> hier ist eine Übersicht aller Noten</h2>
+
+<div class="registerh1">
+    <h1> <?php echo $_SESSION['userName']?>, Noten Übersicht</h1>
+</div> <br>
 
 <article class="hreview open special">
+
     <form action="/logout" method="post">
         <input type="submit" value="logout">
     </form>
     <table class = "noteübersicht">
     <caption>Noten Übersicht</caption>
+
+    <table class="table">
     <tr>
-        <th>note</th>
-        <th>Date</th>
+        <th>Noten</th>
+        <th>Datum</th>
+        <th>Fach Nummer</th>
 
     </tr>
 
@@ -22,30 +29,28 @@
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <table>
-                    <caption>Noten Übersicht</caption>
-                    <tr>
-                        <th>note</th>
-                        <th>Date</th>
-                        <th>Fach</th>
-                        <th></th>
-                    </tr>
+
 
                     <?php foreach ($notes as $note): ?>
                         <tr>
 
                             <th><?= $note->Note; ?></th>
                             <th><?= $note->Date; ?></th>
-                            <th><?= $note->fachID; ?></th>
+                            <th><?= $note->f_name; ?></th>
 
                             <th><a title="Löschen" href="/Note/delete?id=<?= $note->id; ?>">Löschen</a></th>
                         </tr>
                     <?php endforeach; ?>
                 </table>
 
+
+    <a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Zurück</a>
+
+
+
+
             </div>
         </div>
 
     <?php endif; ?>
 </article>
-<form action="/note/create" method="post"> <button name="noteEintragen" >Noten eintragen</button></form>

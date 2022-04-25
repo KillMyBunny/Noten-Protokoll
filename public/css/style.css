@@ -89,4 +89,12 @@ body {
   height: 24px;
   width: 24px;
 }
-
+h1{
+  text-align: center;
+  font-size: 70px;
+  text-decoration: 3px underline;
+  font-family: Dubai;
+}
+.table{
+  background-color: #cecbc5;
+}

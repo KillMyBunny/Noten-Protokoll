@@ -31,8 +31,8 @@ class UserController
 
     public function doCreate()
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = htmlentities(escape_string($_POST['username']));
+        $password = htmlentities(escape_string($_POST['password']));
 
 
         $userRepository = new UserRepository();

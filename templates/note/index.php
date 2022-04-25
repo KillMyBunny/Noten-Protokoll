@@ -8,9 +8,13 @@
     <form action="/logout" method="post">
         <input type="submit" value="logout">
     </form>
+<<<<<<< HEAD
 
 
 
+=======
+    <table class = "noteübersicht">
+>>>>>>> 462c0226683fe36311176a8b3f5daf3fd5966c3f
     <table class="table">
     <tr>
         <th>Noten</th>
@@ -21,7 +25,7 @@
     </tr>
 
     <?php if (empty($notes)): ?>
-
+    <h2>Sie haben noch kein Note</h2>
     <?php else: ?>
         <?php
         ?>
@@ -44,10 +48,18 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
+<<<<<<< HEAD
 
+=======
+            </table>
+>>>>>>> 462c0226683fe36311176a8b3f5daf3fd5966c3f
 
         </div>
 
     <?php endif; ?>
 </article>
+<<<<<<< HEAD
 <a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Logout</a>
+=======
+<a href="/note/create" class="btn btn-success" role="button">Note eintragen</a>
+>>>>>>> 462c0226683fe36311176a8b3f5daf3fd5966c3f

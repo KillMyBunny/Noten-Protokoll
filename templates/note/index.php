@@ -11,6 +11,7 @@
         <th>Datum</th>
         <th>Fach Nummer</th>
 
+
     </tr>
 
     <?php if (empty($notes)): ?>
@@ -33,6 +34,7 @@
                             <th><?= $note->fachID; ?></th>
 
                             <th><a title="Löschen" href="/Note/delete?id=<?= $note->id; ?>">Löschen</a></th>
+                            <th><a title="Edit" href="/Note/update?id=<?= $note->id; ?>">Edit</a></th>
                         </tr>
                     <?php endforeach; ?>
                 </table>

@@ -28,14 +28,8 @@ class NoteController
         $view->display();
     }
     public function create(){
-        $View = new View('Note/create');
-        $View->title= 'Note erstellen';
-        $View->heading = 'Note erstellen';
-        $View->display();
 
-    }
-    public function back(){
-        header('/login');
+
     }
 
     public function doCreate()
@@ -53,11 +47,40 @@ class NoteController
         header('Location: /note');
     }
 
-    public function update(){
+    public function update()
+
+    {
+        $View = new View('Note/update');
+        $View->title= 'Note bearbeiten';
+        $View->heading = 'Note bearbeiten';
+        $View->display();
 
     }
     public function doUpdate(){
+        {
 
+            if (isset($_POST['send'])) {
+
+                $id = $_POST['id'];
+
+                $note = filter_var($_POST['note'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                $datum = filter_var($_POST['datum'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+
+
+
+                $noteRepository = new NoteRepository();
+
+                $noteRepository->update($note, $datum, $id);
+
+            }
+
+
+            // Anfrage an die URI /spiele weiterleiten (HTTP 302)
+
+            header('Location: /note/index');
+        }
     }
     public function delete(){
         $noteRepository = new NoteRepository();

@@ -43,7 +43,35 @@ class NoteRepository extends Repository
 
         return $rows;
     }
+    public function update($note, $datum, $id)
 
+    {
+        if (isset($_POST['send'])) {
+
+            $id = $_POST['id'];
+        $query = "UPDATE $this->tableName SET note = ?, datum = ? WHERE id = ?";
+
+
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+
+        $statement->bind_param('ds', $note, $datum, $id);
+
+
+
+        if (!$statement->execute()) {
+
+            throw new Exception($statement->error);
+
+        }
+
+
+
+        return $statement->insert_id;
+
+        }
   
+    }
 }
+
 

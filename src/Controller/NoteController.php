@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\FachRepository;
 use App\Repository\NoteRepository;
 use App\Repository\UserRepository;
 use App\View\View;
@@ -11,12 +12,14 @@ class NoteController
     public function index(){
 
         $noteRepository = new NoteRepository;
+        $fachRepository = new FachRepository;
 
         $view = new View('Note/index');
         $view->title = 'Note';
         $view->heading = 'Note';
+        session_start();
         if (!isset($_SESSION)){
-            session_start();
+            header('/default');
         }
                     //TODO REPLACE WITH USER_ID FROM SESSION
         $userId = $_SESSION['id'];
@@ -38,9 +41,9 @@ class NoteController
             $Note = $_POST['noteInput'];
             $userID = $_SESSION['id'];
             $Date = $_POST['dateInput'];
-
+            $fachID = 1;
             $noteRepository = new NoteRepository();
-            $noteRepository->create($Note, $Date, $userID);
+            $noteRepository->create($Note, $Date, $userID,$fachID);
 
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)

@@ -19,7 +19,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-<<<<<<< HEAD
+
                 <table>
                     <caption>Noten Übersicht</caption>
                     <tr>
@@ -28,10 +28,7 @@
                         <th>Fach</th>
                         <th></th>
                     </tr>
-=======
 
-
->>>>>>> 8827825e8886970c124ac35e92cd3c46b9c70e57
                     <?php foreach ($notes as $note): ?>
                         <tr>
 

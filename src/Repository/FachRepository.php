@@ -20,6 +20,4 @@ class FachRepository extends Repository
 
         return $statement->insert_id;
     }
-    
-
 }

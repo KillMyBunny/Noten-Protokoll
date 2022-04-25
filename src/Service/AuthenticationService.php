@@ -39,6 +39,7 @@ class AuthenticationService
 
     public static function logout()
     {
+        session_start();
         // TODO: Mit unset die Session-Werte löschen
         unset($_SESSION['id']);
         // TODO: Session zerstören
@@ -47,7 +48,7 @@ class AuthenticationService
 
     public static function isAuthenticated()
     {
-        //session_start();
+        session_start();
         // TODO: Zurückgeben ob eine ID in der Session gespeichert wurde (true/false)
         return isset($_SESSION['id']);
     }

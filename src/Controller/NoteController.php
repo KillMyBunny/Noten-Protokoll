@@ -32,6 +32,7 @@ class NoteController
         $View = new View('Note/create');
         $View->title= 'Note erstellen';
         $View->heading = 'Note erstellen';
+
         $View->display();
 
     }

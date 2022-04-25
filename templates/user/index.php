@@ -15,16 +15,12 @@
         <div class="register">
             <form action="/user/doCreate" method="post">
                 <label for="username"></label>
-                <input type="text" name="username" placeholder="Username eingeben" id="username" required >
+                <input type="text" name="username" placeholder="Username eingeben" id="username"  pattern="^[a-zA-Z][a-zA-Z])" required>
                 <label for="password"></label>
                 <input type="password" name="password" placeholder="Passwort eingeben" id="password1" required >
+
                 <input type="password" name="password" placeholder="Passwort nochmals eingeben" id="password2" >
-                <script type="text/javascript">
 
-
-
-
-                </script>
                 <input type="submit" value="registrieren">
             </form>
         </div>

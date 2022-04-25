@@ -31,9 +31,10 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
-        <form action="/note/create" method="post"> <button name="noteEintragen" >Noten eintragen</button></form>
+
             </div>
         </div>
 
     <?php endif; ?>
 </article>
+<form action="/note/create" method="post"> <button name="noteEintragen" >Noten eintragen</button></form>

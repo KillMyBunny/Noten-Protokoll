@@ -28,9 +28,7 @@
             <li class="nav-item">
                 <a class="nav-link nav-right " href="/user">Register</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link nav-right " href="/Home">Übersicht</a>
-            </li>
+
 
           </ul>
         </div>

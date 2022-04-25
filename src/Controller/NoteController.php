@@ -46,6 +46,13 @@ class NoteController
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /note');
     }
+
+    public function update(){
+
+    }
+    public function doUpdate(){
+
+    }
     public function delete(){
         $noteRepository = new NoteRepository();
         $noteRepository->deleteById($_GET['id']);

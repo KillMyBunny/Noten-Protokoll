@@ -19,13 +19,25 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
+<<<<<<< HEAD
+                <table>
+                    <caption>Noten Übersicht</caption>
+                    <tr>
+                        <th>note</th>
+                        <th>Date</th>
+                        <th>Fach</th>
+                        <th></th>
+                    </tr>
+=======
 
 
+>>>>>>> 8827825e8886970c124ac35e92cd3c46b9c70e57
                     <?php foreach ($notes as $note): ?>
                         <tr>
 
                             <th><?= $note->Note; ?></th>
                             <th><?= $note->Date; ?></th>
+                            <th><?= $note->fachID; ?></th>
 
                             <th><a title="Löschen" href="/Note/delete?id=<?= $note->id; ?>">Löschen</a></th>
                         </tr>

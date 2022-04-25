@@ -17,7 +17,7 @@
 
 
             <a href="/note/index" class="btn btn-danger" role="button">Zurück</a>
-            <input type="submit" value="abbruch">
+            <input type="submit" value="Bestätigen">
         </form>
     </div>
 </div>

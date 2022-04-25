@@ -7,10 +7,10 @@
     </head>
     <body>
 
-        <div class="registerh1">
-            <h1>Register</h1>
+    <div class="registerh1">
+        <h1>Register</h1>
 
-        </div>
+    </div>
 
         <div class="register">
             <form action="/user/doCreate" method="post">
@@ -23,22 +23,7 @@
 
 
 
-                    $("[name='DAFORM']").on('submit', checkPasswords);
 
-                    function checkPasswords()
-                    {
-                        var password1 = document.getElementById("Passwort").value;
-                        var password2 = document.getElementById("Passwort_bestaetigen").value;
-
-                        if (password1 != password2)
-                        {
-                            alert("Passwörter müssen gleich sein!")
-                            document.getElementById("Passwort").focus();
-                            return false;
-                        }
-
-                        return true;
-                    }
                 </script>
                 <input type="submit" value="registrieren">
             </form>

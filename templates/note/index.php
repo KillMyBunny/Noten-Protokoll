@@ -1,12 +1,15 @@
-<h2>Hallo <?php echo $_SESSION['userName']?> hier ist eine Übersicht aller Noten</h2>
+
+<div class="registerh1">
+    <h1> <?php echo $_SESSION['userName']?>, Noten Übersicht</h1>
+</div> <br>
 
 <article class="hreview open special">
 
-    <table class = "noteübersicht">
-    <caption>Noten Übersicht</caption>
+    <table class="table">
     <tr>
-        <th>note</th>
-        <th>Date</th>
+        <th>Noten</th>
+        <th>Datum</th>
+        <th>Fach Nummer</th>
 
     </tr>
 
@@ -20,14 +23,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <table>
-                    <caption>Noten Übersicht</caption>
-                    <tr>
-                        <th>note</th>
-                        <th>Date</th>
-                        <th>Fach</th>
-                        <th></th>
-                    </tr>
+
 
                     <?php foreach ($notes as $note): ?>
                         <tr>
@@ -40,10 +36,13 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
+            <form action="/note/create" method="post">
+                <button type="button" class="btn btn-success">Noten eintragen</button>
+                <button type="button" class="btn btn-danger">Zurück</button>
+            </form>
 
             </div>
         </div>
 
     <?php endif; ?>
 </article>
-<form action="/note/create" method="post"> <button name="noteEintragen" >Noten eintragen</button></form>

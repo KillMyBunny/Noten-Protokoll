@@ -1,21 +1,21 @@
 <h2>Hallo <?php echo $_SESSION['userName']?> hier ist eine Übersicht aller Noten</h2>
 
 <article class="hreview open special">
-    <form action="/note/create" method="post"> <button name="noteEintragen" >Noten eintragen</button></form>
+
+    <table class = "noteübersicht">
+    <caption>Noten Übersicht</caption>
+    <tr>
+        <th>note</th>
+        <th>Date</th>
+
+    </tr>
 
     <?php if (empty($notes)): ?>
 
     <?php else: ?>
         <?php
         ?>
-        <caption>Noten Übersicht</caption>
-        <table>
 
-            <tr>
-                <th>note</th>
-                <th>Date</th>
-                <th>button</th>
-            </tr>
 
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -31,7 +31,7 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
-
+        <form action="/note/create" method="post"> <button name="noteEintragen" >Noten eintragen</button></form>
             </div>
         </div>
 

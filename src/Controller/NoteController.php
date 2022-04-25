@@ -25,6 +25,7 @@ class NoteController
         $userId = $_SESSION['id'];
 
         $view->notes = $noteRepository->readByUserId($userId);
+
         $view->display();
     }
     public function create(){

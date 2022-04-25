@@ -1,7 +1,9 @@
 <h2>Hallo <?php echo $_SESSION['userName']?> hier ist eine Übersicht aller Noten</h2>
 
 <article class="hreview open special">
-
+    <form action="/logout" method="post">
+        <input type="submit" value="logout">
+    </form>
     <table class = "noteübersicht">
     <caption>Noten Übersicht</caption>
     <tr>

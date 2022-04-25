@@ -25,6 +25,7 @@ class NoteRepository extends Repository
     public function readByUserId($id)
     {
         $query = "SELECT * FROM {$this->tableName} WHERE userID=?";
+        $query = "SELECT * FROM {$this->tableName} WHERE fachID=?";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('i', $id);

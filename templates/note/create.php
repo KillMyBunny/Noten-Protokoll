@@ -16,8 +16,8 @@
             <input type="date" placeholder="Enter Date" name="dateInput" required>
 
 
-            <button name="noteabbruch">abbruch</button>
-            <input type="submit" value="bestätigen">
+            <a href="/note/index" class="btn btn-danger" role="button">Zurück</a>
+            <input type="submit" value="abbruch">
         </form>
     </div>
 </div>

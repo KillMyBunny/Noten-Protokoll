@@ -34,6 +34,9 @@ class NoteController
         $View->display();
 
     }
+    public function back(){
+        header('/login');
+    }
 
     public function doCreate()
     {

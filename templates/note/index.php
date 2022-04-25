@@ -36,10 +36,12 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
-            <form action="/note/create" method="post">
-                <button type="button" class="btn btn-success">Noten eintragen</button>
-                <button type="button" class="btn btn-danger">Zurück</button>
-            </form>
+
+
+    <a href="/note/create" class="btn btn-success" role="button">Note eintragen</a> <a href="/login" class="btn btn-danger" role="button">Zurück</a>
+
+
+
 
             </div>
         </div>
